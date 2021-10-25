@@ -100,7 +100,7 @@ def main():
             os.path.join("results", "generated", f"gen.{i:04d}.png"))
 
         with torch.no_grad():
-            reconstructed = gan.generator(gan.encoder(test_ims.cpu())).cpu()
+            reconstructed = gan.generator(gan.encoder(test_ims.cuda())).cpu()
         reconstructed = tv.utils.make_grid(reconstructed[:36], normalize=True, nrow=6,)
         reconstructed = reconstructed.numpy().transpose((1,2,0))
         reconstructed = np.array(reconstructed*255, dtype=np.uint8)
