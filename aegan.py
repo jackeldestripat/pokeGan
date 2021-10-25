@@ -237,7 +237,7 @@ class Encoder(nn.Module):
     Output shape: (?, latent_dim)
     """
 
-    def __init__(self, device: str = "cpu", latent_dim: int = 8):
+    def __init__(self, device: str = "cuda", latent_dim: int = 8):
         """Initialize encoder.
 
         Args:
@@ -382,7 +382,7 @@ class DiscriminatorImage(nn.Module):
     Output shape: (?, 1)
     """
 
-    def __init__(self, device="cpu"):
+    def __init__(self, device="cuda"):
         """Initialize the discriminator."""
         super().__init__()
         self.device = device
@@ -436,7 +436,7 @@ class DiscriminatorLatent(nn.Module):
     Output shape: (?, 1)
     """
 
-    def __init__(self, latent_dim=8, device="cpu"):
+    def __init__(self, latent_dim=8, device="cuda"):
         """Initialize the Discriminator."""
         super().__init__()
         self.latent_dim = latent_dim
@@ -480,7 +480,7 @@ class AEGAN():
     """An Autoencoder Generative Adversarial Network for making pokemon."""
 
     def __init__(self, latent_dim, noise_fn, dataloader,
-                 batch_size=32, device='cpu'):
+                 batch_size=32, device='cuda'):
         """Initialize the AEGAN.
 
         Args:

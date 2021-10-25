@@ -35,7 +35,7 @@ def main():
     os.makedirs("results/checkpoints", exist_ok=True)
 
     root = os.path.join("data")
-    device = "cpu" #torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     transform = tv.transforms.Compose([
             tv.transforms.RandomAffine(0, translate=(5/96, 5/96), fillcolor=(255,255,255)),
             # tv.transforms.ColorJitter(hue=0.5),
