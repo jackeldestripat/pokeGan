@@ -511,14 +511,14 @@ class AEGAN():
         self.generator = Generator(latent_dim=self.latent_dim)
         self.generator = self.generator.to(self.device)
         self.optim_g = optim.Adam(self.generator.parameters(),
-                                  lr=2e-4, betas=(0.5, 0.999),
+                                  lr=1e-4, betas=(0.5, 0.999),
                                   weight_decay=1e-8)
 
     def _init_encoder(self):
         self.encoder = Encoder(latent_dim=self.latent_dim, device=self.device)
         self.encoder = self.encoder.to(self.device)
         self.optim_e = optim.Adam(self.encoder.parameters(),
-                                  lr=2e-4, betas=(0.5, 0.999),
+                                  lr=1e-4, betas=(0.5, 0.999),
                                   weight_decay=1e-8)
 
     def _init_dx(self):
